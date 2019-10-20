@@ -1,0 +1,60 @@
+.mainBody {
+  background: grey;
+  width: 100%;
+  /* height: 100vh; */
+  display: flex;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.noteLi {
+  border: 1px solid black;
+  padding: 8px;
+  margin: 8px;
+}
+
+.folderLi {
+  border: 1px solid black;
+  /* margin: 16px; */
+}
+
+ul {
+  margin: 8px;
+  padding: 0px;
+}
+
+.noteLi > button {
+  height: 40px;
+  width: 100px;
+}
+
+.folderLi, .addFolderButton {
+  width: 100%;
+}
+
+.addNoteButton {
+  width: 40%;
+  height: 50px;
+  float: left;
+  margin: 16px;
+}
+
+.sideBar {
+  float: left;
+  flex: 1;
+  background: white;
+  border: 1px black solid;
+}
+
+.mainPage {
+  float: right;
+  flex: 3;
+  background: rosybrown;
+  border: 1px black solid;
+}
