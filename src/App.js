@@ -5,7 +5,8 @@ import MainPage from "./MainPage";
 
 class App extends React.Component {
   state = {
-    store: this.props.store
+    notes: this.props.store.notes,
+    folders: this.props.store.folders
   };
 
   render() {
@@ -17,7 +18,10 @@ class App extends React.Component {
             <h1>Noteful</h1>
           </Link>
         </header>
-        <MainPage store={this.props.store}/>
+        <MainPage 
+        notes={this.state.notes} 
+        folders={this.state.folders}
+        />
       </div>
     );
   }

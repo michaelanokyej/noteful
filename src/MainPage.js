@@ -1,31 +1,32 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
-import './MainPage.css';
+import SideBarPage from "./SideBarPage";
+import MainBody from "./MainBody";
+import "./MainBody.css";
 
-class MainPage extends React.Component {
-  
+class Mainpage extends React.Component {
   render() {
-    console.log(this.props);
-
-    const folders = this.props.store.folders.map((folder, index) => {
+    const folders = this.props.folders.map((folder, index) => {
       return (
-          <ul>
-            <li key={folder.index} className="folderLi">
-              <Link to={folder.name}>{folder.name}</Link>
-            </li>
-          </ul>
+        <ul>
+          <li key={folder.index} className="folderLi">
+            <Link to={folder.name}>{folder.name}</Link>
+          </li>
+        </ul>
       );
     });
 
-    const notes = this.props.store.notes.map((note, index) => {
+    const notes = this.props.notes.map((note, index) => {
       return (
         <ul>
-          <li key={note.index} className="noteLi">
-            <h3>
-              <Link to={note.name}>{note.name}</Link>
-            </h3>
-            <p>Date modified on {note.modified}</p>
-            <button className="noteDeleteButton">Delete Note</button>
+          <li key={note.index} className="noteLi">       
+              <div className="noteInfo">
+                <h3>
+                  <Link to={note.name} className="noteHeader">{note.name}</Link>
+                </h3>
+                <p>Date modified on {note.modified}</p>
+              </div>
+              <button className="noteDeleteButton">remove</button>
           </li>
         </ul>
       );
@@ -33,17 +34,16 @@ class MainPage extends React.Component {
 
     return (
       <main className="mainBody">
-        <div className="sideBar">
-        {folders}
-        <button className="addFolderButton">Add Folder</button>        
-        </div>
-        <div className="mainPage">
-        {notes}
-        <button className="addNoteButton">Add Note</button>                
-        </div>
+        <SideBarPage folders={folders} />
+        {/* <Route
+            folders={folders}
+            exact path='/'
+            component={SideBarPage}
+          /> */}
+        <MainBody notes={notes} />
       </main>
     );
   }
 }
 
-export default MainPage;
+export default Mainpage;
