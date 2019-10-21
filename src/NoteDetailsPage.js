@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './MainBody.css';
 const NoteDetailsPage = (props) => {
 
   // take the id from the url
@@ -20,16 +20,19 @@ const NoteDetailsPage = (props) => {
   console.log('props', props)
 
   return (
-    <div>
-      <div>
+    <div className="noteDiv">
         <div className="noteDetails">
-          <h1>{note.name}</h1>
-          <span>{note.modified}</span>
+          <div>
+            <div>
+              <h1 className="note-folder-Header">{note.name}</h1>
+            </div>
+            <div className="modified">
+              Modified <span> {note.modified}</span>
+            </div>
+          </div>
+          <button className="removeButton">remove</button>
         </div>
-
         <p>{note.content}</p>
-      </div>
-      <button>remove</button>
     </div>
   )
 }

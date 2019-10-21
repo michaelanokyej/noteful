@@ -7,13 +7,15 @@ const MainBody = props => {
       <li key={note.id} className="noteLi">
         <div className="noteInfo">
           <h3>
-            <Link to={`/notes/${note.id}`} className="noteHeader">
+            <Link to={`/notes/${note.id}`} className="note-folder-Header">
               {note.name}
             </Link>
           </h3>
-          <p>Date modified on {note.modified}</p>
+          <div className="modified">
+            Modified <span>{note.modified}</span>
+          </div>
         </div>
-        <button className="noteDeleteButton">remove</button>
+        <button className="removeButton">remove</button>
       </li>
     );
   });

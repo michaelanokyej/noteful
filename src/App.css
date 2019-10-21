@@ -13,6 +13,40 @@
   justify-content: center;
 }
 
+.sideBar {
+  float: left;
+  flex: 2;
+  background: rgb(30, 12, 131);
+  border: 1px black solid;
+}
+
+.mainPage, .noteDiv, .folderDiv {
+  float: right;
+  flex: 3;
+  background: rosybrown;
+  border: 1px black solid;
+}
+
+.removeButton {
+  height: 30px;
+  width: 100px;
+  transform: rotate(-90deg);
+}
+
+.removeButton:focus, .removeButton:hover {
+  background: red;
+  color: white;
+}
+
+.note-folder-Header, .modified {
+  color: white;
+}
+
+.note-folder-Header:hover, .note-folder-Header:focus {
+  color: orange;
+}
+
+
 
 
 
