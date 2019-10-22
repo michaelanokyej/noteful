@@ -1,10 +1,12 @@
-.App {
+/* My styles */
+
+/* .App {
   text-align: center;
   margin: 0px;
   padding: 0px;
-}
+} */
 
-.appHeader {
+/* .appHeader {
   width: 100%;
   height: 100px;
   background: yellow;
@@ -25,9 +27,9 @@
   flex: 3;
   background: rosybrown;
   border: 1px black solid;
-}
+} */
 
-.removeButton {
+/* .removeButton {
   height: 30px;
   width: 100px;
   transform: rotate(-90deg);
@@ -36,9 +38,9 @@
 .removeButton:focus, .removeButton:hover {
   background: red;
   color: white;
-}
+} */
 
-.note-folder-Header, .modified {
+/* .note-folder-Header, .modified {
   color: white;
 }
 
@@ -46,7 +48,110 @@
   color: orange;
 }
 
+ */
 
 
 
 
+
+.addNoteButton, .addFolderButton {
+  width: 60px;
+  height: 60px;
+  margin: 16px;
+  border-radius: 50%;
+  background-color: #cacaca;
+  color: black;
+  font-weight: bold;
+}
+
+.addNoteButton:focus, .addFolderButton:focus, .addNoteButton:hover, .addFolderButton:hover {
+  background: rgb(22, 209, 5);
+  color: white;
+}
+/* Thinkful styles */
+.App {
+  --custom-font: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  display: grid;
+  grid-template-areas: "sidebar header" "sidebar main";
+  grid-template-columns: 1fr 2.3fr;
+  grid-template-rows: 120px 1fr;
+  min-height: 100vh;
+}
+
+.App__nav {
+  background-color: #0b1b32;
+  color: #fff;
+  grid-area: sidebar;
+  height: 100vh;
+  overflow: auto;
+}
+
+.App__header {
+  background-color: #0b1f3a;
+  color: #bdbdbd;
+  font-family: var(--custom-font);
+  grid-area: header;
+  padding-left: 16px;
+  padding-top: 32px;
+  text-shadow: 2px 1px 2px black;
+}
+
+.App__header a {
+  color: #bdbdbd;
+}
+
+.App__main {
+  background-color: #102541;
+  grid-area: main;
+  height: calc(100vh - 120px);
+  overflow: auto;
+}
+
+
+
+.NoteListNav__list {
+  list-style-type: none;
+  margin: 130px 0 0;
+  padding: 0;
+}
+
+.NoteListNav__button-wrapper {
+  margin: 0 0 0 auto;
+  max-width: 180px;
+}
+
+.NoteListNav__add-folder-button {
+  margin: 20px auto;
+}
+.NoteListNav__add-folder-button:hover {
+  background-color: #29862e;
+  color: white;
+}
+
+.NoteListNav__folder-link {
+  background-color: #030f1f;
+  color: #b5b3b3;
+  display: block;
+  font-family: var(--custom-font);
+  font-size: 20px;
+  margin: 0 0 8px auto;
+  max-width: 180px;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.NoteListNav__folder-link:hover {
+  color: #FFB72F;
+  cursor: pointer;
+}
+.NoteListNav__folder-link.active {
+  background-color: #102541;
+}
+
+.NoteListNav__num-notes {
+  color: #adadad;
+  display: block;
+  float: right;
+  font-size: 10px;
+}

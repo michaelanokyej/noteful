@@ -8,15 +8,15 @@ const SideBarPage = (props) => {
   const folders = props.folders.map((folder, index) => {
     return (
         <li key={folder.id} className="folderLi">
-          <Link to={`/folders/${folder.id}`} className="note-folder-Header">{folder.name}</Link>
+          <Link to={`/folders/${folder.id}`} className="NoteListNav__folder-link">{folder.name}</Link>
         </li>
     );
   });
 
-  console.log (props)
+  // console.log (props)
   return (
-    <div className="sideBar">
-      <ul>{folders}</ul>
+    <div className='NoteListNav'>
+      <ul className='NoteListNav__list'>{folders}</ul>
       <button className="addFolderButton">+ Folder</button>
     </div>
   );

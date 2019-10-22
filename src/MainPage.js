@@ -9,8 +9,8 @@ import "./MainBody.css";
 class Mainpage extends React.Component {
   render() {
     return (
-      <main className="mainBody">
-        <SideBarPage folders={this.props.folders} />
+      <main className="App__main">
+        {/* <SideBarPage folders={this.props.folders} /> */}
         {/* <SideBarPage folders={folders} /> */}
         <Route
           // folders={folders}
