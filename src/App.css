@@ -51,7 +51,9 @@
  */
 
 
-
+li {
+  list-style: none;
+}
 
 
 .addNoteButton, .addFolderButton {
@@ -60,8 +62,10 @@
   margin: 16px;
   border-radius: 50%;
   background-color: #cacaca;
+  text-decoration: none;
   color: black;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .addNoteButton:focus, .addFolderButton:focus, .addNoteButton:hover, .addFolderButton:hover {

@@ -5,10 +5,20 @@ import MainPage from "./MainPage";
 import SideBarPage from "./SideBarPage";
 
 class App extends React.Component {
+  // state = {
+  //   notes: this.props.store.notes,
+  //   folders: this.props.store.folders
+  // };
+
   state = {
-    notes: this.props.store.notes,
-    folders: this.props.store.folders
-  };
+    notes: [],
+    folders: []
+};
+
+componentDidMount() {
+    // fake date loading from API call
+    setTimeout(() => this.setState(this.props.store), 600);
+}
 
   render() {
     return (

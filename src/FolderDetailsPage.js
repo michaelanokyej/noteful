@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { format } from "date-fns";
 import "./FolderDetailsPage.css";
 import "./MainBody.css";
 
@@ -31,23 +32,30 @@ const FolderDetailsPage = props => {
         <ul>
           {notes.map(note => (
             <li key={note.id}>
-              <div className="noteList">
-              <div>
-                <h2>
-                  <Link to={`/notes/${note.id}`} className="note-folder-Header">{note.name}</Link>
+              <div className="Note">
+                <h2 className="Note__title">
+                  <Link to={`/notes/${note.id}`}>{note.name}</Link>
                 </h2>
+                <button className="Note__delete" type="button">
+                  remove
+                </button>
+                <div className="Note__dates">
+                  <div className="Note__dates-modified">
+                    Modified{" "}
+                    <span className="Date">
+                      {format(new Date(note.modified), "dd MMM yyyy")}
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div className="modified">
-                Modified <span>{note.modified}</span>
-              </div>
-              </div>
-              
-              <button className="removeButton">remove</button>
             </li>
           ))}
         </ul>
       </div>
-      <button className="addNoteButton">+ Note</button>
+      {/* <button className="addNoteButton">+ Note</button> */}
+      <Link to="/add-note">
+        <button className="addNoteButton">+ Note</button>
+      </Link>
     </div>
   );
 };

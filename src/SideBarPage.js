@@ -17,7 +17,12 @@ const SideBarPage = (props) => {
   return (
     <div className='NoteListNav'>
       <ul className='NoteListNav__list'>{folders}</ul>
-      <button className="addFolderButton">+ Folder</button>
+      {/* <button className="addFolderButton">+ Folder</button> */}
+      <Link to="/add-folder"  >
+<button className="addFolderButton">
+    + Folder
+</button>
+    </Link>
     </div>
   );
 };

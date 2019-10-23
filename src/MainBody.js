@@ -1,5 +1,9 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
+import { format } from 'date-fns';
+import './MainBody.css';
+import AddNotePage from "./AddNotePage";
+
 // import Note from './Note';
 
 const MainBody = props => {
@@ -35,7 +39,7 @@ const MainBody = props => {
     Modified
     {' '}
     <span className='Date'>
-    {note.modified}
+    {format(new Date(note.modified), 'dd MMM yyyy')}
     </span>
   </div>
 </div>
@@ -57,7 +61,13 @@ const MainBody = props => {
 // Thinkful's return 
 <section className='NoteListMain'>
 <ul>{notes}</ul>
-<button className="addNoteButton">+ Note</button>
+{/* <button className="addNoteButton"> */}
+<Link to="/add-note"  >
+<button className="addNoteButton">
+    + Note
+</button>
+    </Link>
+{/* </button> */}
 </section>
   );
 };
