@@ -1,0 +1,18 @@
+.App__nav {
+  display: block;
+}
+
+.NotePageNav{
+  box-sizing: border-box;
+}
+.NotePageNav__folder-name {
+  color: #b5b3b3;
+font-family: var(--custom-font);
+font-size: 40px;
+height: 50vh;
+margin: 0 0 0 auto;
+text-orientation: upright;
+width: 75px;
+-webkit-writing-mode: vertical-lr;
+writing-mode: vertical-lr;
+}

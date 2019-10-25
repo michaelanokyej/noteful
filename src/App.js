@@ -1,8 +1,10 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Switch, Link, Route } from "react-router-dom";
 import "./App.css";
 import MainPage from "./MainPage";
 import SideBarPage from "./SideBarPage";
+import HomeSideBar from "./HomeSideBar";
+import NoteSideBar from "./NoteSideBar";
 
 class App extends React.Component {
   // state = {
@@ -36,9 +38,18 @@ componentDidMount() {
       // </div>
 
       <div className="App">
-      <nav className="App__nav">
-        <SideBarPage folders={this.state.folders} />
-      </nav>
+      {/* <nav className="App__nav"> */}
+        <SideBarPage 
+        folders={this.state.folders} 
+        notes={this.state.notes}
+        />
+      
+
+
+
+
+
+      {/* </nav> */}
       <header className="App__header">
           <h1>
               <Link to="/">Noteful</Link>{' '}

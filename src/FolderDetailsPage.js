@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import "./FolderDetailsPage.css";
 import "./MainBody.css";
+import NoteSideBar from "./NoteSideBar";
 
 const FolderDetailsPage = props => {
   // take the id from the url
@@ -25,9 +26,9 @@ const FolderDetailsPage = props => {
 
   return (
     <div className="folderDiv">
-      <div>
+      {/* <div>
         <h1>{folder.name}</h1>
-      </div>
+      </div> */}
       <div>
         <ul>
           {notes.map(note => (
