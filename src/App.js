@@ -1,65 +1,45 @@
 import React from "react";
-import { Switch, Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./App.css";
 import MainPage from "./MainPage";
 import SideBarPage from "./SideBarPage";
-import HomeSideBar from "./HomeSideBar";
-import NoteSideBar from "./NoteSideBar";
+import noteAndFolderContext from "./context/noteAndFolderContext";
 
 class App extends React.Component {
-  // state = {
-  //   notes: this.props.store.notes,
-  //   folders: this.props.store.folders
-  // };
-
   state = {
     notes: [],
     folders: []
-};
+  };
 
-componentDidMount() {
+  componentDidMount() {
     // fake date loading from API call
-    setTimeout(() => this.setState(this.props.store), 600);
-}
+    setTimeout((
+      // fetch call might go here
+    ) => this.setState(this.props.store), 600);
+  }
 
   render() {
+    const contextValue = {
+      notes: this.state.notes,
+      folders: this.state.folders
+    };
     return (
-      // <Route>
-      // <div className="App">
-      //   <header className="appHeader">
-      //     <Link to="/">
-      //       <h1>Noteful</h1>
-      //     </Link>
-      //   </header>
-      //   <MainPage 
-      //   notes={this.state.notes} 
-      //   folders={this.state.folders}
-      //   />
-      // </div>
-
       <div className="App">
-      {/* <nav className="App__nav"> */}
-        <SideBarPage 
-        folders={this.state.folders} 
-        notes={this.state.notes}
-        />
-      
+        <noteAndFolderContext.Provider value={contextValue}>
+        <SideBarPage />
+        {/* Previously
+        <SideBarPage folders={this.state.folders} notes={this.state.notes} /> */}
 
-
-
-
-
-      {/* </nav> */}
-      <header className="App__header">
+        <header className="App__header">
           <h1>
-              <Link to="/">Noteful</Link>{' '}
+            <Link to="/">Noteful</Link>{" "}
           </h1>
-      </header>
-      <MainPage 
-         notes={this.state.notes} 
-         folders={this.state.folders}
-      />
-  </div>
+        </header>
+        <MainPage />
+        {/* Previously
+        <MainPage notes={this.state.notes} folders={this.state.folders} /> */}
+        </noteAndFolderContext.Provider >
+      </div>
     );
   }
 }

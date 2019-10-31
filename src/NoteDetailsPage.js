@@ -1,15 +1,21 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import { format } from 'date-fns';
+import noteAndFolderContext from "./context/noteAndFolderContext";
 import "./MainBody.css";
 import "./NoteDetailsPage.css";
 
-const NoteDetailsPage = props => {
+  class NoteDetailsPage extends React.Component {
+    static contextType = noteAndFolderContext;
+  
+    render() {
   // take the id from the url
-  const id = props.match.params.noteId;
+  // console.log("context", this.context);
+  // console.log("props", this.props);
+  const id = this.props.match.params.noteId;
 
   // find the note who id match the one against
-  const note = props.notes.find(el => el.id === id);
+  const note = this.context.notes.find(el => el.id === id);
 
   // if no note, we show a 404
   if (!note) {
@@ -20,7 +26,7 @@ const NoteDetailsPage = props => {
     );
   }
 
-  console.log("props", props);
+  // console.log("props", props);
 
   return (
     // My initial way
@@ -62,5 +68,6 @@ const NoteDetailsPage = props => {
     </section>
   );
 };
+  }
 
 export default NoteDetailsPage;

@@ -3,11 +3,16 @@ import { Link, Route } from "react-router-dom";
 import { format } from 'date-fns';
 import './MainBody.css';
 import AddNotePage from "./AddNotePage";
+import noteAndFolderContext from "./context/noteAndFolderContext";
+
 
 // import Note from './Note';
 
-const MainBody = props => {
-  const notes = props.notes.map((note, index) => {
+  class MainBody extends React.Component {
+    static contextType = noteAndFolderContext;
+  
+    render() {
+  const notes = this.context.notes.map((note, index) => {
     return (
       // My map 
       // <li key={note.id} className="noteLi">
@@ -71,5 +76,6 @@ const MainBody = props => {
 </section>
   );
 };
+  }
 
 export default MainBody;

@@ -1,19 +1,24 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
+import noteAndFolderContext from "./context/noteAndFolderContext";
 import './MainBody.css';
 import './SideBar.css';
 
-const NoteSideBar = (props) => {
+  class NoteSideBar extends React.Component {
+
+    static contextType = noteAndFolderContext;
+
+  render() {
 
   // take the id from the url
-  const UrlNoteId = props.match.params.noteId;
+  const UrlNoteId = this.props.match.params.noteId;
 
   // find the note who id match the one against
-  const note = props.notes.find(el => el.id === UrlNoteId);
+  const note = this.context.notes.find(el => el.id === UrlNoteId);
 
   // find the folder id that matches the folder id of the note id in url
-  const folder = props.folders.filter(el => el.id === note.folderId);
-  console.log(folder);
+  const folder = this.context.folders.filter(el => el.id === note.folderId);
+  // console.log(folder);
 
   // show notes that belong to this folder
   // const notes = props.notes.filter(el => el.folderId === id);
@@ -28,7 +33,7 @@ const NoteSideBar = (props) => {
   }
 
 
-  console.log("props", props)
+  // console.log("props", props)
   return (
     <div className="NotePageNav">
       <Link to="/">
@@ -40,6 +45,7 @@ const NoteSideBar = (props) => {
     </div>
   )
 }
+  }
 
 export default NoteSideBar;
 
