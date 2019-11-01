@@ -1,10 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import './AddNotePage.css'
+import noteAndFolderContext from "./context/noteAndFolderContext";
+
 
 class AddNotePage extends React.Component {
+  static contextType = noteAndFolderContext;
+
   render() {
-    const foldersOptions = this.props.folders.map((folder, index) => {
+    // console.log("context", this.context)
+    // console.log("props", this.props)
+
+    const foldersOptions = this.context.folders.map((folder, index) => {
       return (
         <option key={folder.id} value={folder.id}>
           {folder.name}

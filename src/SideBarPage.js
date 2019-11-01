@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import './MainBody.css';
 import HomeSideBar from "./HomeSideBar";
 import NoteSideBar from "./NoteSideBar";
-import FolderHomeSideBar from "./FolderHomeSideBar";
+// import FolderHomeSideBar from "./FolderHomeSideBar";
 import NewAddPageNav from "./NewAddPageNav";
 import './SideBar.css';
 
