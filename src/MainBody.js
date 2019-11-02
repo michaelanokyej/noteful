@@ -35,10 +35,10 @@ class MainBody extends React.Component {
             <h2 className="Note__title">
               <Link to={`/notes/${note.id}`}>{note.name}</Link>
             </h2>
-            {/* <button className="Note__delete" type="button">
+            <button className="Note__delete" type="button">
               remove
-            </button> */}
-            <RemoveButton />
+            </button>
+            {/* <RemoveButton /> */}
             <div className="Note__dates">
               <div className="Note__dates-modified">
                 Modified{" "}

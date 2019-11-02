@@ -47,7 +47,6 @@ class FolderDetailsPage extends React.Component {
                     remove
                   </button> */}
                   <RemoveButton />
-
                   <div className="Note__dates">
                     <div className="Note__dates-modified">
                       Modified{" "}

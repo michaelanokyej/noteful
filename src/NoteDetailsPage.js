@@ -52,7 +52,7 @@ class NoteDetailsPage extends React.Component {
           <h2 className="Note__title">
             <Link to={`/notes/${note.id}`}>{note.name}</Link>
           </h2>
-          <RemoveButton />
+          <RemoveButton id={id}/>
 
           <div className="Note__dates">
             <div className="Note__dates-modified">
