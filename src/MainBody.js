@@ -13,6 +13,7 @@ class MainBody extends React.Component {
 
 
   render() {
+    console.log("context", this.context)
     const notes = this.context.notes.map((note, index) => {
       return (
         // My map

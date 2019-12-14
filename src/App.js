@@ -11,6 +11,7 @@ class App extends React.Component {
     folders: []
   };
 
+
   // function to delete notes
   deleteNote = noteId => {
     const newNotes = this.state.notes.filter(note => note.id !== noteId);
@@ -29,8 +30,15 @@ class App extends React.Component {
   //     }
 
   fetchFolders = () => {
+    const options = {
+      method: "Get",
+      headers: new Headers(
+        {'content-type': 'application/json',
+        'Authorization': 'Bearer f47169ff-d5ef-4a8c-8668-e8d7102d06de'}
+        ),
+  };
     // console.log(this.props)
-    fetch(`http://localhost:9090/folders`)
+    fetch(`http://localhost:8000/api/folders`, options)
       .then(res => res.json())
       .then(res => {
         this.setState({ folders: res });
@@ -41,7 +49,15 @@ class App extends React.Component {
   };
 
   fetchNotes = () => {
-    fetch(`http://localhost:9090/notes`)
+    const options = {
+      method: "Get",
+      headers: new Headers(
+        {'content-type': 'application/json',
+        'Authorization': 'Bearer f47169ff-d5ef-4a8c-8668-e8d7102d06de'}
+        ),
+  };
+
+    fetch(`http://localhost:8000/api/notes`, options)
       .then(res => res.json())
       .then(res => {
         this.setState({ notes: res });

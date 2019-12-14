@@ -20,7 +20,8 @@ class AddNotePage extends React.Component {
     return (
       <section className="AddNote">
         <h2>Create a note</h2>
-        <form className="Noteful-form" action="#">
+        {/* Using the POST methos to update server  */}
+        <form className="Noteful-form" action="#" method="POST">
           <div className="field">
             <label htmlFor="note-name-input">Name</label>
             <input type="text" id="note-name-input" />
@@ -38,6 +39,7 @@ class AddNotePage extends React.Component {
             </select>
           </div>
           <div className="buttons">
+            {/* Add the add note fetch here  */}
             <button type="submit">
               Add note
             </button>

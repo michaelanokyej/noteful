@@ -5,10 +5,10 @@ import noteAndFolderContext from "./context/noteAndFolderContext";
 class RemoveButton extends React.Component {
   static contextType = noteAndFolderContext;
 
-
+  // use this.props.id in place of noteid 
   // deleteBookmarkRequest(noteId, callback) {
   //   const url = `http://localhost:9090/notes/`
-  //   fetch(url + `/${noteId}`, {
+  //   fetch(url + `${noteId}`, {
   //     method: 'DELETE',
   //   })
   //     .then(res => {
@@ -32,20 +32,24 @@ class RemoveButton extends React.Component {
   //     })
   // }
 
-  // how to get the note-id to use it in my fetch on line 8 
+  // how to get the note-id to use it in my fetch on line 8
 
   render() {
+
     const id = this.props.id;
     // console.log("context", this.context)
-    console.log("props", this.props)
+    console.log("props", this.props);
     return (
-      <button className="Note__delete" type="button" 
-      onClick={() => {
-        console.log(this.context)
-        this.context.deleteNote(id)
-        }}>
-          {/* This links to the root  */}
-           <Link to="/">remove</Link>
+      <button
+        className="Note__delete"
+        type="button"
+        onClick={() => {
+          console.log(this.context);
+          this.context.deleteNote(id);
+        }}
+      >
+        {/* This links to the root  */}
+        <Link to="/">remove</Link>
         {/* remove */}
       </button>
     );
