@@ -41,6 +41,7 @@ class App extends React.Component {
     fetch(`http://localhost:8000/api/folders`, options)
       .then(res => res.json())
       .then(res => {
+        console.log("folders", res)
         this.setState({ folders: res });
       })
       .catch(err => {
@@ -60,6 +61,7 @@ class App extends React.Component {
     fetch(`http://localhost:8000/api/notes`, options)
       .then(res => res.json())
       .then(res => {
+        console.log("notes", res)
         this.setState({ notes: res });
       })
       .catch(err => {
@@ -73,6 +75,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log("state notes", this.state.notes)
     const contextValue = {
       notes: this.state.notes,
       folders: this.state.folders,

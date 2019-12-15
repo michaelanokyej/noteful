@@ -7,11 +7,12 @@ const Note = (props) => {
       <div className="noteInfo">
         <h3>
           <Link to={`/notes/${note.id}`} className="note-folder-Header">
-            {note.name}
+            {note.note_name}
           </Link>
         </h3>
         <div className="modified">
-          Modified <span>{note.modified}</span>
+          Modified 
+          {/* <span>{note.modified}</span> */}
         </div>
       </div>
       <button className="removeButton">remove</button>

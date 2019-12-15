@@ -50,7 +50,7 @@ class NoteDetailsPage extends React.Component {
       <section className="NotePageMain">
         <div className="Note">
           <h2 className="Note__title">
-            <Link to={`/notes/${note.id}`}>{note.name}</Link>
+            <Link to={`/notes/${note.id}`}>{note.note_name}</Link>
           </h2>
           <RemoveButton id={id}/>
 
@@ -58,7 +58,7 @@ class NoteDetailsPage extends React.Component {
             <div className="Note__dates-modified">
               Modified{" "}
               <span className="Date">
-                {format(new Date(note.modified), "dd MMM yyyy")}
+                {/* {format(new Date(note.modified), "dd MMM yyyy")} */}
               </span>
             </div>
           </div>

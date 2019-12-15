@@ -41,7 +41,7 @@ class FolderDetailsPage extends React.Component {
               <li key={note.id}>
                 <div className="Note">
                   <h2 className="Note__title">
-                    <Link to={`/notes/${note.id}`}>{note.name}</Link>
+                    <Link to={`/notes/${note.id}`}>{note.note_name}</Link>
                   </h2>
                   {/* <button className="Note__delete" type="button">
                     remove

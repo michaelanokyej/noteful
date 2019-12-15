@@ -6,7 +6,7 @@ const FolderHomeSideBar = (props) => {
   const folders = props.folders.map((folder, index) => {
     return (
         <li key={folder.id} className="folderLi">
-          <Link to={`/folders/${folder.id}`} className="NoteListNav__folder-link" >{folder.name}</Link>
+          <Link to={`/folders/${folder.id}`} className="NoteListNav__folder-link" >{folder.folder_name}</Link>
         </li>
     );
   });

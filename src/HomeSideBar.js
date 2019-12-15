@@ -14,7 +14,7 @@ class HomeSideBar extends React.Component {
             to={`/folders/${folder.id}`}
             className="NoteListNav__folder-link"
           >
-            {folder.name}
+            {folder.folder_name}
           </Link>
         </li>
       );

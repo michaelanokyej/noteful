@@ -13,7 +13,6 @@ class MainBody extends React.Component {
 
 
   render() {
-    console.log("context", this.context)
     const notes = this.context.notes.map((note, index) => {
       return (
         // My map
@@ -34,7 +33,7 @@ class MainBody extends React.Component {
         <li key={note.id}>
           <div className="Note">
             <h2 className="Note__title">
-              <Link to={`/notes/${note.id}`}>{note.name}</Link>
+              <Link to={`/notes/${note.id}`}>{note.note_name}</Link>
             </h2>
             <button className="Note__delete" type="button">
               remove
@@ -44,7 +43,7 @@ class MainBody extends React.Component {
               <div className="Note__dates-modified">
                 Modified{" "}
                 <span className="Date">
-                  {format(new Date(note.modified), "dd MMM yyyy")}
+                  {/* {format(new Date(note.modified), "dd MMM yyyy")} */}
                 </span>
               </div>
             </div>
