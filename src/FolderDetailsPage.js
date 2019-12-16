@@ -13,13 +13,16 @@ class FolderDetailsPage extends React.Component {
 
   render() {
     // take the id from the url
-    const id = this.props.match.params.folderId;
+    const id = Number(this.props.match.params.folderId);
 
     // find the note who id match the one against
     const folder = this.context.folders.find(el => el.id === id);
 
+
     // show notes that belong to this folder
-    const notes = this.context.notes.filter(el => el.folderId === id);
+    const notes = this.context.notes.filter(el => Number(el.folder_id) === id);
+  
+
 
     // if no note, we show a 404
     if (!folder) {

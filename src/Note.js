@@ -12,7 +12,7 @@ const Note = (props) => {
         </h3>
         <div className="modified">
           Modified 
-          {/* <span>{note.modified}</span> */}
+          <span>{note.modified}</span>
         </div>
       </div>
       <button className="removeButton">remove</button>

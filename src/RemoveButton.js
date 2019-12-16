@@ -44,7 +44,7 @@ class RemoveButton extends React.Component {
         className="Note__delete"
         type="button"
         onClick={() => {
-          console.log(this.context);
+          // console.log("id to remove", this.context);
           this.context.deleteNote(id);
         }}
       >

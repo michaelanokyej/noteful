@@ -35,15 +35,15 @@ class MainBody extends React.Component {
             <h2 className="Note__title">
               <Link to={`/notes/${note.id}`}>{note.note_name}</Link>
             </h2>
-            <button className="Note__delete" type="button">
+            {/* <button className="Note__delete" type="button">
               remove
-            </button>
-            {/* <RemoveButton /> */}
+            </button> */}
+            <RemoveButton id={note.id}/>
             <div className="Note__dates">
               <div className="Note__dates-modified">
                 Modified{" "}
                 <span className="Date">
-                  {/* {format(new Date(note.modified), "dd MMM yyyy")} */}
+                  {format(new Date(note.modified), "dd MMM yyyy")}
                 </span>
               </div>
             </div>

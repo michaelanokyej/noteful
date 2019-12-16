@@ -14,7 +14,7 @@ class NoteDetailsPage extends React.Component {
     // take the id from the url
     // console.log("context", this.context);
     // console.log("props", this.props);
-    const id = this.props.match.params.noteId;
+    const id = Number(this.props.match.params.noteId);
 
     // find the note who id match the one against
     const note = this.context.notes.find(el => el.id === id);
@@ -58,7 +58,7 @@ class NoteDetailsPage extends React.Component {
             <div className="Note__dates-modified">
               Modified{" "}
               <span className="Date">
-                {/* {format(new Date(note.modified), "dd MMM yyyy")} */}
+                {format(new Date(note.modified), "dd MMM yyyy")}
               </span>
             </div>
           </div>

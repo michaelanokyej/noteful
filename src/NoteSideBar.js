@@ -9,7 +9,8 @@ class NoteSideBar extends React.Component {
 
   render() {
     // take the id from the url
-    const UrlNoteId = this.props.match.params.noteId;
+    const UrlNoteId = Number(this.props.match.params.noteId);
+    // console.log("urlNoteId", UrlNoteId)
     // console.log("props", this.props)
     //   console.log("context", this.context)
     // find the note who id match the one against
@@ -20,7 +21,6 @@ class NoteSideBar extends React.Component {
 
     // show notes that belong to this folder
     // const notes = props.notes.filter(el => el.folderId === id);
-    console.log(note)
     // if no note, we show a 404
     if (!note) {
       return (
@@ -31,8 +31,7 @@ class NoteSideBar extends React.Component {
     }
 
     
-    const folder = this.context.folders.filter(el => el.id === note.folderId);
-    console.log("folder", folder)
+    const folder = this.context.folders.filter(el => el.id === Number(note.folder_id));
     // console.log("props", props)
 
     // return a route to the root page 
@@ -50,7 +49,7 @@ class NoteSideBar extends React.Component {
             Back
           </button>
         </Link>
-        <h3 className="NotePageNav__folder-name">{folder[0].name}</h3>
+        <h3 className="NotePageNav__folder-name">{folder[0].folder_name}</h3>
       </div>
     );
   }

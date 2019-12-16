@@ -14,10 +14,18 @@ class App extends React.Component {
 
   // function to delete notes
   deleteNote = noteId => {
-    const newNotes = this.state.notes.filter(note => note.id !== noteId);
-    this.setState({
-      notes: newNotes
-    });
+    const options = {
+      method: "Delete",
+      headers: new Headers(
+        {'content-type': 'application/json',
+        'Authorization': 'Bearer f47169ff-d5ef-4a8c-8668-e8d7102d06de'}
+        ),
+  };
+
+    fetch(`http://localhost:8000/api/notes/${noteId}`, options)
+      .catch(err => {
+        this.setState({ notes: this.props.store.notes });
+      });
   };
 
   // After a delete button is clicked, should I use a useEffect
@@ -41,7 +49,6 @@ class App extends React.Component {
     fetch(`http://localhost:8000/api/folders`, options)
       .then(res => res.json())
       .then(res => {
-        console.log("folders", res)
         this.setState({ folders: res });
       })
       .catch(err => {
@@ -61,7 +68,6 @@ class App extends React.Component {
     fetch(`http://localhost:8000/api/notes`, options)
       .then(res => res.json())
       .then(res => {
-        console.log("notes", res)
         this.setState({ notes: res });
       })
       .catch(err => {
@@ -75,7 +81,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("state notes", this.state.notes)
     const contextValue = {
       notes: this.state.notes,
       folders: this.state.folders,
