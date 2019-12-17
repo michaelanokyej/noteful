@@ -13,31 +13,14 @@ class MainBody extends React.Component {
 
 
   render() {
+    // console.log("context in mainbody", this.context.notes)
     const notes = this.context.notes.map((note, index) => {
       return (
-        // My map
-        // <li key={note.id} className="noteLi">
-        //   <div className="noteInfo">
-        //     <h3>
-        //       <Link to={`/notes/${note.id}`} className="note-folder-Header">
-        //         {note.name}
-        //       </Link>
-        //     </h3>
-        //     <div className="modified">
-        //       Modified <span>{note.modified}</span>
-        //     </div>
-        //   </div>
-        //   <button className="removeButton">remove</button>
-        // </li>
-
         <li key={note.id}>
           <div className="Note">
             <h2 className="Note__title">
               <Link to={`/notes/${note.id}`}>{note.note_name}</Link>
             </h2>
-            {/* <button className="Note__delete" type="button">
-              remove
-            </button> */}
             <RemoveButton id={note.id}/>
             <div className="Note__dates">
               <div className="Note__dates-modified">
@@ -53,20 +36,11 @@ class MainBody extends React.Component {
     });
 
     return (
-      // My return
-      // <div className="mainPage">
-      //   <ul>{notes}</ul>
-      //   <button className="addNoteButton">+ Note</button>
-      // </div>
-
-      // Thinkful's return
       <section className="NoteListMain">
         <ul>{notes}</ul>
-        {/* <button className="addNoteButton"> */}
         <Link to="/add-note">
           <button className="addNoteButton">+ Note</button>
         </Link>
-        {/* </button> */}
       </section>
     );
   }

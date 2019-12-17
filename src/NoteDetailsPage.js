@@ -28,31 +28,13 @@ class NoteDetailsPage extends React.Component {
       );
     }
 
-    // console.log("props", props);
-
     return (
-      // My initial way
-      // <div className="noteDiv">
-      //     <div className="noteDetails">
-      //       <div>
-      //         <div>
-      //           <h1 className="note-folder-Header">{note.name}</h1>
-      //         </div>
-      //         <div className="modified">
-      //           Modified <span> {note.modified}</span>
-      //         </div>
-      //       </div>
-      //       <button className="removeButton">remove</button>
-      //     </div>
-      //     <p>{note.content}</p>
-      // </div>
-
       <section className="NotePageMain">
         <div className="Note">
           <h2 className="Note__title">
             <Link to={`/notes/${note.id}`}>{note.note_name}</Link>
           </h2>
-          <RemoveButton id={id}/>
+          <RemoveButton id={note.id} />
 
           <div className="Note__dates">
             <div className="Note__dates-modified">

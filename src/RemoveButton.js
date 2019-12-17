@@ -38,7 +38,7 @@ class RemoveButton extends React.Component {
 
     const id = this.props.id;
     // console.log("context", this.context)
-    console.log("props", this.props);
+    // console.log("props", this.props);
     return (
       <button
         className="Note__delete"

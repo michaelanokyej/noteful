@@ -35,9 +35,6 @@ class FolderDetailsPage extends React.Component {
 
     return (
       <div className="folderDiv">
-        {/* <div>
-        <h1>{folder.name}</h1>
-      </div> */}
         <div>
           <ul>
             {notes.map(note => (
@@ -46,10 +43,7 @@ class FolderDetailsPage extends React.Component {
                   <h2 className="Note__title">
                     <Link to={`/notes/${note.id}`}>{note.note_name}</Link>
                   </h2>
-                  {/* <button className="Note__delete" type="button">
-                    remove
-                  </button> */}
-                  <RemoveButton />
+                  <RemoveButton id={note.id}/>
                   <div className="Note__dates">
                     <div className="Note__dates-modified">
                       Modified{" "}
@@ -63,7 +57,6 @@ class FolderDetailsPage extends React.Component {
             ))}
           </ul>
         </div>
-        {/* <button className="addNoteButton">+ Note</button> */}
         <Link to="/add-note">
           <button className="addNoteButton">+ Note</button>
         </Link>
