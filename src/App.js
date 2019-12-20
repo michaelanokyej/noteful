@@ -16,12 +16,12 @@ class App extends React.Component {
     const options = {
       method: "Delete",
       headers: new Headers({
-        "content-type": "application/json",
+        "Content-Type": "application/json",
         Authorization: "Bearer f47169ff-d5ef-4a8c-8668-e8d7102d06de"
       })
     };
 
-    fetch(`http://localhost:8000/api/notes/${noteId}`, options)
+    fetch(`https://mynewnotefulserver.herokuapp.com/api/notes/${noteId}`, options)
       .then(res => {
         this.setState({ notes: this.state.notes.filter(n => n.id != noteId) });
       })
@@ -39,9 +39,9 @@ class App extends React.Component {
     // }
 
     const options = {
-      method: "POST",
+      method: "Post",
       headers: new Headers({
-        "content-type": "application/json",
+        "Content-Type": "application/json",
         Authorization: "Bearer f47169ff-d5ef-4a8c-8668-e8d7102d06de"
       }),
       body: JSON.stringify({
@@ -52,13 +52,13 @@ class App extends React.Component {
     };
 
     // Post note
-    fetch(`http://localhost:8000/api/notes`, options)
+    fetch(`https://mynewnotefulserver.herokuapp.com/api/notes`, options)
       .then(res => res.json())
       .then(this.fetchNotes())
       .catch(err => {
         this.setState({ notes: this.props.store.notes });
       });
-    // fetch(`http://localhost:8000/api/notes`, options)
+    // fetch(`https://mynewnotefulserver.herokuapp.com/api/notes`, options)
     //   .then(res => {
     //     this.setState({ notes: this.state.notes.filter(n => n.id != noteId) });
     //   })
@@ -76,9 +76,9 @@ class App extends React.Component {
     // }
 
     const options = {
-      method: "POST",
+      method: "Post",
       headers: new Headers({
-        "content-type": "application/json",
+        "Content-Type": "application/json",
         Authorization: "Bearer f47169ff-d5ef-4a8c-8668-e8d7102d06de"
       }),
       body: JSON.stringify({
@@ -87,13 +87,13 @@ class App extends React.Component {
     };
 
     // Post note
-    fetch(`http://localhost:8000/api/folders`, options)
+    fetch(`https://mynewnotefulserver.herokuapp.com/api/folders`, options)
       .then(res => res.json())
       .then(this.fetchNotes())
       .catch(err => {
         this.setState({ notes: this.props.store.folders });
       });
-    // fetch(`http://localhost:8000/api/notes`, options)
+    // fetch(`https://mynewnotefulserver.herokuapp.com/api/notes`, options)
     //   .then(res => {
     //     this.setState({ notes: this.state.notes.filter(n => n.id != noteId) });
     //   })
@@ -115,11 +115,11 @@ class App extends React.Component {
     const options = {
       method: "Get",
       headers: new Headers({
-        "content-type": "application/json",
+        "Content-Type": "application/json",
         Authorization: "Bearer f47169ff-d5ef-4a8c-8668-e8d7102d06de"
       })
     };
-    fetch(`http://localhost:8000/api/folders`, options)
+    fetch(`https://mynewnotefulserver.herokuapp.com/api/folders`, options)
       .then(res => res.json())
       .then(res => {
         this.setState({ folders: res });
@@ -133,14 +133,15 @@ class App extends React.Component {
     const options = {
       method: "Get",
       headers: new Headers({
-        "content-type": "application/json",
+        "Content-Type": "application/json",
         Authorization: "Bearer f47169ff-d5ef-4a8c-8668-e8d7102d06de"
       })
     };
 
-    fetch(`http://localhost:8000/api/notes`, options)
+    fetch(`https://mynewnotefulserver.herokuapp.com/api/notes`, options)
       .then(res => res.json())
       .then(res => {
+        console.log(res)
         this.setState({ notes: res });
       })
       .catch(err => {
