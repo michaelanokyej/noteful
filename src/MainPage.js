@@ -12,40 +12,19 @@ class Mainpage extends React.Component {
     return (
       <main className="App__main">
         <Route
-          // folders={folders}
           exact
           path="/"
           component={MainBody}
-          // previously
-          // component={routeProps => (
-          //   <MainBody
-          //     {...routeProps}
-          //     notes={this.props.notes}
-          //     folders={this.props.folders}
-          //   />
-          // )}
         />
         <Route
           exact
           path="/notes/:noteId"
           component={NoteDetailsPage}
-          // previously
-          // component={routeProps => (
-          //   <NoteDetailsPage {...routeProps} notes={this.props.notes} />
-          // )}
         />
         <Route
           exact
           path="/folders/:folderId"
           component={FolderDetailsPage}
-          // previously
-          // component={routeProps => (
-          //   <FolderDetailsPage
-          //     {...routeProps}
-          //     folders={this.props.folders}
-          //     notes={this.props.notes}
-          //   />
-          // )}
         />
 
         <Route

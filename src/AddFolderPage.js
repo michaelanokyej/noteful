@@ -1,9 +1,12 @@
 import React from "react";
 import noteAndFolderContext from "./context/noteAndFolderContext";
+import { Redirect } from "react-router-dom";
+
 
 class AddFolderPage extends React.Component {
   state = {
     folder_name: '',
+    routeToHome: false
   }
 
   static contextType = noteAndFolderContext;
@@ -11,6 +14,7 @@ class AddFolderPage extends React.Component {
   render() {
     return (
       <section className="AddFolder">
+        {this.state.routeToHome && <Redirect to="/" />}
         <h2>Create a folder</h2>
         <form className="Noteful-form" action="#">
           <div className="field">
@@ -21,9 +25,11 @@ class AddFolderPage extends React.Component {
           </div>
           <div className="buttons">
             <button type="submit"
-            onClick={() => {
-              console.log("folder in add folder page", this.state.folder_name)
-              this.context.addFolder(this.state.folder_name)}}
+            onClick={(e) => {
+              e.preventDefault()
+              this.context.addFolder(this.state.folder_name)
+              this.setState({ routeToHome: true });
+            }}
               >Add Folder</button>
           </div>
         </form>

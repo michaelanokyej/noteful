@@ -1,15 +1,15 @@
 import React from "react";
-import './AddNotePage.css'
+import "./AddNotePage.css";
 import noteAndFolderContext from "./context/noteAndFolderContext";
-// import AddNoteButton from "./AddNoteButton";
-
+import { Redirect } from "react-router-dom";
 
 class AddNotePage extends React.Component {
   state = {
-    folderId: '',
-    content: '',
-    note_name: ''
-  }
+    folderId: "",
+    content: "",
+    note_name: "",
+    routeToHome: false
+  };
   static contextType = noteAndFolderContext;
 
   render() {
@@ -26,45 +26,52 @@ class AddNotePage extends React.Component {
 
     const noteBody = {
       folder_id: this.state.folderId,
-    content: this.state.content,
-    note_name: this.state.note_name
-    }
+      content: this.state.content,
+      note_name: this.state.note_name
+    };
     return (
       <section className="AddNote">
+        {this.state.routeToHome && <Redirect to="/" />}
         <h2>Create a note</h2>
         {/* Using the POST methos to update server  */}
-        <form className="Noteful-form" action="#" >
+        <form className="Noteful-form" action="#">
           <div className="field">
             <label htmlFor="note-name-input">Name</label>
-            <input type="text" id="note-name-input" 
-            onChange={e => this.setState({ note_name: e.target.value })}
+            <input
+              type="text"
+              id="note-name-input"
+              onChange={e => this.setState({ note_name: e.target.value })}
             />
           </div>
           <div className="field">
             <label htmlFor="note-content-input">Content</label>
-            <textarea type="text" id="note-content-input"
-            onChange={e => this.setState({ content: e.target.value })}
+            <textarea
+              type="text"
+              id="note-content-input"
+              onChange={e => this.setState({ content: e.target.value })}
             ></textarea>
           </div>
           <div className="field">
-            <label htmlFor="note-folder-input">
-              Folder
-            </label>
-            <select id="note-folder-select" 
-            onChange={e => this.setState({ folderId: e.target.value })}
+            <label htmlFor="note-folder-input">Folder</label>
+            <select
+              id="note-folder-select"
+              onChange={e => this.setState({ folderId: e.target.value })}
             >
               {foldersOptions}
             </select>
           </div>
           <div className="buttons">
-            {/* Add the add note fetch here  */}
-            {/* onClick={this.context.addNote(this.state)} */}
-            <button type="submit" onClick={() => {
-              console.log("note body in add note page", noteBody)
-              this.context.addNote(noteBody)}}>
+            <button
+              type="submit"
+              onClick={e => {
+                e.preventDefault();
+                console.log("note body in add note page", noteBody);
+                this.context.addNote(noteBody);
+                this.setState({ routeToHome: true });
+              }}
+            >
               Add note
             </button>
-            {/* <AddNoteButton noteBody={this.state}/> */}
           </div>
         </form>
       </section>

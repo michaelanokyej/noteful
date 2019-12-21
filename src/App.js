@@ -32,39 +32,38 @@ class App extends React.Component {
 
   // function to add notes
   addNote = noteBody => {
-    console.log("noteBody", noteBody);
-
-    // const bodyToBeadded = {
-
-    // }
-
-    const options = {
-      method: "Post",
-      headers: new Headers({
-        "Content-Type": "application/json",
-        Authorization: "Bearer f47169ff-d5ef-4a8c-8668-e8d7102d06de"
-      }),
-      body: JSON.stringify({
-        folder_id: Number(noteBody.folder_id),
-        content: noteBody.content,
-        note_name: noteBody.note_name
-      })
-    };
+    const newNote = {
+      folder_id: Number(noteBody.folder_id),
+      content: noteBody.content,
+      note_name: noteBody.note_name
+    }
 
     // Post note
-    fetch(`https://mynewnotefulserver.herokuapp.com/api/notes`, options)
-      .then(res => res.json())
-      .then(this.fetchNotes())
+    fetch(`https://mynewnotefulserver.herokuapp.com/api/notes`, {
+      method: "POST",
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+      body: JSON.stringify(newNote)
+    })
+      .then(res => {
+        console.log("newNote folder_id", newNote.folder_id)
+        console.log("added note", res)
+        if(!res.ok){
+          return res.json().then(e => Promise.reject(e))
+        } 
+        // return res;
+        this.fetchNotes();
+      })
+      // .then(res => {
+      //   if(res.status === 201) {
+      //     this.setState({ notes: [...this.state.notes, newNote]  })
+      //     console.log("Updated state", this.state)
+      //   }
+      // })
       .catch(err => {
         this.setState({ notes: this.props.store.notes });
       });
-    // fetch(`https://mynewnotefulserver.herokuapp.com/api/notes`, options)
-    //   .then(res => {
-    //     this.setState({ notes: this.state.notes.filter(n => n.id != noteId) });
-    //   })
-    //   .catch(err => {
-    //     this.setState({ notes: this.props.store.notes });
-    //   });
   };
 
   // function to add folder 
@@ -76,7 +75,7 @@ class App extends React.Component {
     // }
 
     const options = {
-      method: "Post",
+      method: "POST",
       headers: new Headers({
         "Content-Type": "application/json",
         Authorization: "Bearer f47169ff-d5ef-4a8c-8668-e8d7102d06de"
@@ -86,10 +85,30 @@ class App extends React.Component {
       })
     };
 
-    // Post note
-    fetch(`https://mynewnotefulserver.herokuapp.com/api/folders`, options)
-      .then(res => res.json())
-      .then(this.fetchNotes())
+    // Post Folder
+    fetch(`https://mynewnotefulserver.herokuapp.com/api/folders`, {
+      method: "POST",
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+      body: JSON.stringify({
+        folder_name: folder,
+      })
+    })
+    .then(res => {
+      console.log("newFolder name", folder)
+      console.log("added folder", res)
+      if(!res.ok){
+        return res.json().then(e => Promise.reject(e))
+      }
+      this.fetchNotes();
+      this.fetchFolders();
+    })
+    // .then(res => {
+    //   if(res.status === 201) {
+    //     res.send("added note")
+    //   }
+    // })
       .catch(err => {
         this.setState({ notes: this.props.store.folders });
       });
@@ -119,7 +138,13 @@ class App extends React.Component {
         Authorization: "Bearer f47169ff-d5ef-4a8c-8668-e8d7102d06de"
       })
     };
-    fetch(`https://mynewnotefulserver.herokuapp.com/api/folders`, options)
+    fetch(`https://mynewnotefulserver.herokuapp.com/api/folders`, {
+      method: "Get",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Authorization: "Bearer f47169ff-d5ef-4a8c-8668-e8d7102d06de"
+      })
+    })
       .then(res => res.json())
       .then(res => {
         this.setState({ folders: res });
@@ -138,10 +163,15 @@ class App extends React.Component {
       })
     };
 
-    fetch(`https://mynewnotefulserver.herokuapp.com/api/notes`, options)
+    fetch(`https://mynewnotefulserver.herokuapp.com/api/notes`, {
+      method: "Get",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Authorization: "Bearer f47169ff-d5ef-4a8c-8668-e8d7102d06de"
+      })
+    })
       .then(res => res.json())
       .then(res => {
-        console.log(res)
         this.setState({ notes: res });
       })
       .catch(err => {

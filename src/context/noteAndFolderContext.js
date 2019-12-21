@@ -1,8 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const noteAndFolderContext = React.createContext({
   notes: [],
-  folders: []
-})
+  folders: [],
+  addFolder: () => {},
+  addNote: () => {},
+  deleteNote: () => {},
+  updateNote: () => {}
+});
 
 export default noteAndFolderContext;
