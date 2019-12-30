@@ -68,6 +68,7 @@ class App extends React.Component {
 
   // function to add folder 
   addFolder = folder => {
+
     console.log("folder", folder);
 
     // const bodyToBeadded = {

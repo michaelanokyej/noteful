@@ -19,7 +19,7 @@ class AddFolderPage extends React.Component {
         <form className="Noteful-form" action="#">
           <div className="field">
             <label htmlFor="folder-name-input">Name</label>
-            <input type="text" id="folder-name-input" 
+            <input type="text" id="folder-name-input" required
             onChange={e => this.setState({ folder_name: e.target.value })}
             />
           </div>
