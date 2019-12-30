@@ -27,12 +27,8 @@ class AddFolderPage extends React.Component {
             <button type="submit"
             onClick={(e) => {
               e.preventDefault()
-              if (this.state.folder_name === null) {
-                alert("Folder Name can not be empty")
-              }
-              else{this.context.addFolder(this.state.folder_name)
-                this.setState({ routeToHome: true });}
-              
+              this.context.addFolder(this.state.folder_name)
+              this.setState({ routeToHome: true });
             }}
               >Add Folder</button>
           </div>
