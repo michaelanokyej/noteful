@@ -16,7 +16,7 @@ class AddFolderPage extends React.Component {
       <section className="AddFolder">
         {this.state.routeToHome && <Redirect to="/" />}
         <h2>Create a folder</h2>
-        <form className="Noteful-form" action="#">
+        <form className="Noteful-form" action="#" noValidate>
           <div className="field">
             <label htmlFor="folder-name-input">Name</label>
             <input type="text" id="folder-name-input" required
@@ -27,8 +27,15 @@ class AddFolderPage extends React.Component {
             <button type="submit"
             onClick={(e) => {
               e.preventDefault()
-              this.context.addFolder(this.state.folder_name)
+              if (this.state.folder_name.length === 0) {
+                // console.log("folder is empty")
+                window.alert("Folder name is empty. Please add a folder name before submitting")
+              }else
+              {
+                this.context.addFolder(this.state.folder_name)
               this.setState({ routeToHome: true });
+              }
+              
             }}
               >Add Folder</button>
           </div>

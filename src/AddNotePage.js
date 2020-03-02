@@ -65,9 +65,19 @@ class AddNotePage extends React.Component {
               type="submit"
               onClick={e => {
                 e.preventDefault();
-                console.log("note body in add note page", noteBody);
-                this.context.addNote(noteBody);
-                this.setState({ routeToHome: true });
+                if (noteBody.folder_id.length === 0) {
+                  window.alert("Select a valid folder")
+                }
+                else if (noteBody.note_name.length === 0) {
+                  window.alert("Note name is empty. Please provide note name before submitting")
+                }
+                else if (noteBody.content.length === 0) {
+                  window.alert("Content cannot be empty")
+                }else
+                {
+                  this.context.addNote(noteBody);
+                  this.setState({ routeToHome: true });
+                }
               }}
             >
               Add note

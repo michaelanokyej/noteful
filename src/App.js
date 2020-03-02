@@ -53,6 +53,7 @@ class App extends React.Component {
           return res.json().then(e => Promise.reject(e))
         } 
         // return res;
+        // return res.json()
         this.fetchNotes();
       })
       // .then(res => {
@@ -62,17 +63,22 @@ class App extends React.Component {
       //   }
       // })
       .catch(err => {
-        this.setState({ notes: this.props.store.notes });
+        // this.setState({ notes: this.props.store.notes });
+        console.error({err})
       });
   };
 
   // function to add folder 
   addFolder = folder => {
 
-    console.log("folder", folder);
+    // console.log("folder", folder);
 
     // const bodyToBeadded = {
 
+    // }
+
+    // if (folder.length === 0) {
+    //   console.log("folder is empty")
     // }
 
     const options = {
@@ -97,7 +103,7 @@ class App extends React.Component {
       })
     })
     .then(res => {
-      console.log("newFolder name", folder)
+      // console.log("newFolder name", folder)
       console.log("added folder", res)
       if(!res.ok){
         return res.json().then(e => Promise.reject(e))
@@ -111,7 +117,9 @@ class App extends React.Component {
     //   }
     // })
       .catch(err => {
-        this.setState({ notes: this.props.store.folders });
+        // this.setState({ notes: this.props.store.folders });
+        console.error({err})
+
       });
     // fetch(`https://mynewnotefulserver.herokuapp.com/api/notes`, options)
     //   .then(res => {

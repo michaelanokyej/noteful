@@ -11,9 +11,6 @@ class NoteDetailsPage extends React.Component {
   static contextType = noteAndFolderContext;
 
   render() {
-    // take the id from the url
-    // console.log("context", this.context);
-    // console.log("props", this.props);
     const id = Number(this.props.match.params.noteId);
 
     // find the note who id match the one against
